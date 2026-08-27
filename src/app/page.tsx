@@ -31,7 +31,7 @@ export default function Home() {
           <p className="availability"><span aria-hidden="true" className="status-dot" /> Open to Remote &amp; Relocation</p>
         </aside>
         <div className="casebook-intro">
-          <h1>Reliable AI and analytics for complex operational decisions.</h1>
+          <h1 className="sr-only">Dev Neupane — Applied AI &amp; Data Analyst</h1>
           <p>I turn data signals into trusted systems—from engineering and applied AI through evaluation, adoption, and executive decision support.</p>
           <div className="hero-actions">
             <Link className="button primary" href="#work">Review selected work</Link>

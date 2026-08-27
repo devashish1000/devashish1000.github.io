@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Applied AI and analytics professional building reliable AI-enabled workflows, data products, and decision-ready systems.",
   metadataBase: new URL("https://devashish1000.github.io"),
   openGraph: {
-    title: "Dev Neupane — Reliable AI and analytics for complex operational decisions",
+    title: "Dev Neupane — Applied AI & Data Analyst",
     description: "Applied AI, decision intelligence, workflow automation, and analytics product delivery.",
     type: "website",
     url: "https://devashish1000.github.io/",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Dev Neupane — Applied AI & Data Analyst",
-    description: "Reliable AI and analytics for complex operational decisions.",
+    description: "Applied AI, decision intelligence, workflow automation, and analytics product delivery.",
     images: ["/og-image.png"],
   },
 };

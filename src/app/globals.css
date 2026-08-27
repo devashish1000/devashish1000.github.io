@@ -485,7 +485,7 @@ body { color: var(--ink); }
 .hero-rail .availability { margin-top: 2.8rem; max-width: 160px; font: .78rem/1.6 var(--display); color: #303847; }
 .casebook-intro { padding: 108px 56px 62px; align-self: center; }
 .casebook-intro h1 { max-width: 650px; margin: 0; font: 400 clamp(3.4rem, 4.8vw, 4.3rem)/1.02 var(--serif); letter-spacing: -.045em; }
-.casebook-intro > p:not(.credibility-line) { max-width: 620px; margin: 2.25rem 0 0; color: #3f4754; font-size: 1rem; line-height: 1.75; }
+.casebook-intro > p:not(.credibility-line) { max-width: 620px; margin: 0; color: #3f4754; font-size: 1rem; line-height: 1.75; }
 .hero-actions { margin-top: 2.2rem; gap: 1.4rem; }
 .button { min-height: 50px; border-radius: 1px; font-size: .86rem; }
 .button.primary { padding-inline: 1.5rem; background: var(--blue); box-shadow: none; }
@@ -623,7 +623,7 @@ body { color: var(--ink); }
   .casebook-hero { grid-template-columns: 1fr; grid-template-areas: "intro" "portrait" "rail"; }
   .casebook-intro { padding: 2.75rem var(--gutter) 2rem; }
   .casebook-intro h1 { font-size: clamp(2.45rem, 12vw, 3.5rem); }
-  .casebook-intro > p:not(.credibility-line) { margin-top: 1.5rem; font-size: .95rem; }
+  .casebook-intro > p:not(.credibility-line) { margin-top: 0; font-size: .95rem; }
   .hero-actions { flex-direction: row; align-items: center; }
   .button { width: auto; }
   .credibility-line { display: none; }
