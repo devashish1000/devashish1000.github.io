@@ -11,7 +11,7 @@ export function SiteFooter() {
           <h2>Let’s build something<br />people can trust.</h2>
         </div>
         <div className="contact-details">
-          <p>Open to Applied AI, data, business analysis, and AI product opportunities.</p>
+          <p>Target opportunities: AI Enablement · Applied AI · AI Product Operations · Data &amp; AI Strategy · Senior Analytics.</p>
           <a className="email-link" href="mailto:devashish1000@gmail.com">
             <EnvelopeSimple size={23} aria-hidden="true" /> devashish1000@gmail.com
           </a>

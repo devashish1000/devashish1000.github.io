@@ -154,29 +154,123 @@ export const archiveProjects = [
   },
 ];
 
-export const experience = [
-  ["Product Business Analyst", "Bellevue University", "Jul 2026–Present"],
-  ["Senior Business Performance Analyst — Corporate Analytics", "Southwest Airlines", "Apr 2023–Jul 2024"],
-  ["Senior Business Planning & Optimization Analyst", "LinkedIn", "Nov 2020–Mar 2023"],
-  ["Business Analyst", "Shearman & Sterling LLP", "Jan 2020–Nov 2020"],
-  ["Analyst — Finance & Budget", "NYC Department of Education", "Aug 2019–Dec 2019"],
+export type Experience = {
+  role: string;
+  company: string;
+  dates: string;
+  scope: string;
+  evidence: string[];
+  related?: { label: string; href: string };
+};
+
+export const experience: Experience[] = [
+  {
+    role: "Product Business Analyst",
+    company: "Bellevue University",
+    dates: "Jul 2026–Present",
+    scope: "Translate ambiguous needs into requirements, process flows, source-to-target mappings, acceptance criteria, and decision-ready outputs.",
+    evidence: ["Evaluated an AI-enabled document workflow across 5 document classes and 250 records", "96% classification accuracy · 94% field extraction · 72% straight-through processing"],
+    related: { label: "Related analytics work", href: "/work/pc-insurance-analytics/" },
+  },
+  {
+    role: "Co-Founder",
+    company: "Headwell iOS",
+    dates: "Jan 2026–Present",
+    scope: "Co-founded a private iOS wellness application and helped move the product from concept toward a functional user experience.",
+    evidence: ["Private product", "Wellness · Product strategy · iOS"],
+  },
+  {
+    role: "Senior Business Performance Analyst — Corporate Analytics",
+    company: "Southwest Airlines",
+    dates: "Apr 2023–Jul 2024",
+    scope: "Owned source-to-report analytics across 15+ KPIs and 100+ cost-center leaders, connecting operating and financial signals to executive decisions.",
+    evidence: ["96% forecast accuracy", "35 hours saved monthly · 75% less manual work · 60% faster cycle time"],
+    related: { label: "Related finance work", href: "/work/flight-economics-command-center/" },
+  },
+  {
+    role: "Senior Business Planning & Optimization Analyst",
+    company: "LinkedIn",
+    dates: "Nov 2020–Mar 2023",
+    scope: "Built planning forecasts and automated capacity, SLA, quality, and KPI reporting for a multi-site analyst organization.",
+    evidence: ["300+ analysts across 5 sites · 100+ hours saved monthly", "120+ planning streams · constraints identified 8 weeks early"],
+    related: { label: "Related planning work", href: "/work/memory-supply-control-tower/" },
+  },
+  {
+    role: "Business Analyst",
+    company: "Shearman & Sterling LLP",
+    dates: "Jan 2020–Nov 2020",
+    scope: "Standardized utilization, cost, and profitability analytics across 16+ practice areas supporting 2,000+ attorneys.",
+    evidence: ["55% improvement in reporting efficiency", "$15M in opportunities identified · $30M technology investment evaluated"],
+  },
+  {
+    role: "Analyst — Finance & Budget",
+    company: "NYC Department of Education",
+    dates: "Aug 2019–Dec 2019",
+    scope: "Built prioritization and validation frameworks for capital proposals and site migrations.",
+    evidence: ["$1B+ in proposals across 220+ sites", "$250M+ in executive investment decisions informed"],
+  },
 ];
 
-export const capabilities = [
+export const valueAreas = [
+  ["01", "AI enablement & adoption", "Turn promising AI capabilities into governed workflows people can trust and use."],
+  ["02", "Applied AI product delivery", "Move from use-case discovery through requirements, testing, release, and measurable adoption."],
+  ["03", "AI-focused business analysis", "Translate business constraints into data contracts, evaluation criteria, and human-review paths."],
+  ["04", "Decision intelligence", "Connect operational, financial, and customer signals to clear choices and trade-offs."],
+  ["05", "Workflow automation", "Reduce manual effort through controlled pipelines, APIs, validation, and exception handling."],
+  ["06", "Executive analytics", "Build decision-ready narratives, forecasts, dashboards, and KPI governance."],
+];
+
+export const expertise = [
   {
-    number: "01",
-    title: "Applied AI & GenAI",
-    detail: "LLM workflows · AI agents · Prompt design · Structured outputs · Human-in-the-loop · AI evaluations",
+    title: "Enterprise AI",
+    detail: "OpenAI · Gemini · Claude · Hugging Face · RAG · Knowledge retrieval · AI agents · LLM evaluations · Tool and function calling · Responsible AI · Human review",
   },
   {
-    number: "02",
-    title: "AI Product & Delivery",
-    detail: "Use-case discovery · Requirements · User stories · Acceptance criteria · UAT · Adoption and ROI",
+    title: "Data engineering",
+    detail: "Python · pandas · SQL · DuckDB · REST APIs · JSON · ETL · Data-quality controls · Workflow automation",
   },
   {
-    number: "03",
-    title: "Data & Automation",
-    detail: "Python · SQL · REST APIs · ETL · Data quality · Workflow automation · Tableau · Power BI",
+    title: "Analytics",
+    detail: "Power BI · Tableau · Excel · Prophet · SAP ERP/BW · Forecasting · Variance analysis · KPI governance",
+  },
+  {
+    title: "Product delivery",
+    detail: "Requirements · Epics and stories · Acceptance criteria · Evaluation rubrics · UAT · Edge cases · Governance · Adoption · ROI",
+  },
+];
+
+export const domains = ["Aviation", "Technology", "Higher education", "Legal services", "Public sector", "Finance & operations", "Supply chain", "Wellness"];
+
+export const education = [
+  {
+    degree: "MBA — Supply Chain & Logistics",
+    school: "University of Nebraska Omaha",
+    date: "Dec 2025",
+    distinction: "Highest Distinction · GPA 3.77/4.0",
+  },
+  {
+    degree: "B.S. — Management Information Systems",
+    school: "University of Nebraska Omaha",
+    date: "2019",
+    distinction: "Systems Development · Highest Distinction · GPA 4.0/4.0",
+  },
+];
+
+export const credentials = [
+  { title: "Advanced Product Marketing", issuer: "LinkedIn", href: "https://www.linkedin.com/in/devashishn/details/certifications/" },
+  { title: "Business Analytics: Sales Data", issuer: "LinkedIn", href: "https://www.linkedin.com/in/devashishn/details/certifications/" },
+];
+
+export const publishedThinking = [
+  {
+    title: "Connecting AI-augmented workflows with supply-chain strategy",
+    takeaway: "How LLM-assisted analysis, automated data pipelines, and SQL/BI visualization turn complex logistics data into operating decisions.",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7423097981685506048/",
+  },
+  {
+    title: "A cross-functional toolkit for data, operations, and automation",
+    takeaway: "A practical view of combining analytics, financial modeling, enterprise platforms, and AI automation for decision support.",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7371487803714621440/",
   },
 ];
 
