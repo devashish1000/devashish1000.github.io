@@ -1,215 +1,82 @@
+import Image from "next/image";
 import Link from "next/link";
-import {
-  ChartLineUp,
-  CompassTool,
-  Database,
-  DownloadSimple,
-  FolderOpen,
-  Sparkle,
-} from "@phosphor-icons/react/dist/ssr";
+import { DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 import { Arrow } from "@/components/Arrow";
-import { AnimatedMetric } from "@/components/AnimatedMetric";
 import { ProjectArchive } from "@/components/ProjectArchive";
 import { ProjectDiagram } from "@/components/ProjectDiagram";
 import { Reveal } from "@/components/Reveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { capabilities, experience, projects, workSteps } from "@/data/portfolio";
 
-const heroMetrics = [
-  ["5+", "AI-enabled applications"],
-  ["15+", "multi-step workflows"],
-  ["30+", "manual handoffs eliminated"],
-  ["1,200+", "hours saved annually"],
-];
-
-const results = [
-  ["96%", "classification accuracy", "AI-enabled document workflow"],
-  ["96%", "forecast accuracy", "Corporate analytics"],
-  ["100+", "hours saved monthly", "Automated KPI reporting"],
-  ["$250M+", "in decisions informed", "Capital prioritization"],
-];
-
-const capabilityIcons = [Sparkle, CompassTool, Database];
+const impact = [["5+", "AI applications shipped"], ["15+", "workflows automated"], ["1,200+", "hours saved annually"], ["$250M+", "decisions informed"]];
+const additionalEvidence = [["96%", "AI classification accuracy"], ["96%", "forecast accuracy"], ["100+", "monthly hours saved through KPI automation"]];
 
 export default function Home() {
   return (
     <main id="main">
-      <section id="top" className="hero aurora-panel shell">
-        <div className="hero-copy">
-          <p className="hero-role">Applied AI &amp; Data Analyst</p>
-          <h1>
-            <span className="name-display"><span>Dev</span> <span>Neupane</span></span>
-            <span className="hero-statement">I turn complex workflows into reliable AI and data products.</span>
-          </h1>
-          <p className="hero-description">
-            I combine AI product delivery, analytics engineering, and business translation to build systems people can trust, test, and use.
-          </p>
-          <div className="hero-actions">
-            <Link className="button primary" href="#work">
-              <FolderOpen size={23} weight="duotone" aria-hidden="true" />
-              View selected work
-            </Link>
-            <a className="button secondary" href="/Dev_Neupane_Resume.pdf">
-              <DownloadSimple size={23} aria-hidden="true" />
-              Download résumé
-            </a>
-          </div>
+      <section id="top" className="casebook-hero shell">
+        <aside className="hero-rail">
+          <span className="section-kicker">Applied AI &amp; Data Analyst</span>
+          <p>I build AI and data products that connect technology, operations, and measurable business outcomes.</p>
           <p className="availability"><span aria-hidden="true" className="status-dot" /> Open to Remote &amp; Relocation</p>
+        </aside>
+        <div className="casebook-intro">
+          <h1>Reliable AI and analytics for complex operational decisions.</h1>
+          <p>I turn data signals into trusted systems—from engineering and applied AI through evaluation, adoption, and executive decision support.</p>
+          <div className="hero-actions">
+            <Link className="button primary" href="#work">Review selected work</Link>
+            <a className="button text-button" href="/Dev_Neupane_Resume.pdf"><DownloadSimple size={18} aria-hidden="true" /> Download résumé</a>
+          </div>
+          <p className="credibility-line">Southwest Airlines · LinkedIn · Bellevue University<br />7 years across analytics, operations &amp; strategy</p>
         </div>
+        <figure className="hero-portrait"><Image src="/dev-neupane-headshot.png" alt="Dev Neupane" fill sizes="(max-width: 800px) 100vw, 34vw" priority /></figure>
       </section>
 
-      <section className="proof-rail shell" aria-label="Selected impact">
-        {heroMetrics.map(([value, label]) => (
-          <div className="proof-item" key={label}>
-            <strong>{value}</strong>
-            <span>{label}</span>
-          </div>
-        ))}
-      </section>
+      <section className="impact-band" aria-label="Selected impact"><div className="shell impact-grid">
+        {impact.map(([value, label]) => <div className="impact-item" key={label}><strong>{value}</strong><span>{label}</span></div>)}
+      </div></section>
 
-      <section id="work" className="work-section panel shell section-space">
-        <Reveal>
-          <div className="section-heading work-heading">
-            <div>
-              <span className="section-kicker">Selected work</span>
-              <h2>From data signals<br />to better decisions.</h2>
-            </div>
-            <p>Three end-to-end systems showing how I connect data engineering, applied AI, quality controls, and human judgment.</p>
-          </div>
-        </Reveal>
-
-        <div className="project-list">
+      <section id="work" className="editorial-section shell">
+        <span className="section-kicker work-kicker">Selected work</span>
+        <div className="casebook-list">
           {projects.map((project, index) => (
-            <Reveal key={project.slug}>
-              <article className="project-row">
-                <div className="project-copy">
-                  <span className="row-number">{String(index + 1).padStart(2, "0")}</span>
-                  <div>
-                    <p className="project-label">{project.label}</p>
-                    <h3>{project.title}</h3>
-                    <p>{project.summary}</p>
-                    <Link className="text-link" href={`/work/${project.slug}/`}>View case study <Arrow /></Link>
-                  </div>
-                </div>
-                <ProjectDiagram type={project.diagram} />
-              </article>
-            </Reveal>
+            <Reveal key={project.slug}><article className="casebook-project">
+              <header className="casebook-project-head"><span>{String(index + 1).padStart(2, "0")}</span><div><p className="project-label">{project.label}</p><h3>{project.title}</h3><p>{project.context}</p></div></header>
+              <div className="casebook-evidence"><div><strong>Problem</strong><p>{project.problem}</p></div><div><strong>Contribution</strong><p>{project.role}</p></div><div><strong>Result</strong><p>{project.outcome}</p></div></div>
+              <Link className="text-link" href={`/work/${project.slug}/`}>Read case study <Arrow /></Link>
+              <ProjectDiagram type={project.diagram} />
+            </article></Reveal>
           ))}
         </div>
-        <Link className="archive-link" href="/work/">View the complete work archive <Arrow /></Link>
+        <Link className="archive-link" href="/work/">View complete work archive <Arrow /></Link>
       </section>
 
-      <section id="about" className="about shell section-space">
-        <Reveal>
-          <div className="section-heading about-copy">
-            <span className="section-kicker">About</span>
-            <h2>Business context in.<br />Reliable systems out.</h2>
-          </div>
-        </Reveal>
-        <Reveal>
-          <div className="about-narrative">
-            <p>I work where business questions, data, and AI meet—translating unclear needs into requirements, workflows, controls, evaluations, and decision-ready products.</p>
-            <blockquote>The work is finished when people can trust, test, and use the outcome.</blockquote>
-          </div>
-        </Reveal>
+      <section id="experience" className="editorial-section section-tinted">
+        <div className="shell split-heading"><div><span className="section-kicker">Experience</span><h2>Built inside high-stakes operating environments.</h2></div><p>Seven years translating business questions into analytics, workflow automation, and decision-ready products.</p></div>
+        <div className="shell experience-list">{experience.map(([role, company, dates]) => <article className="experience-row" key={`${company}-${role}`}><h3>{role}</h3><p>{company}</p><time>{dates}</time><Arrow /></article>)}</div>
       </section>
 
-      <section id="skills" className="capabilities shell section-space">
-        <Reveal>
-          <div className="section-heading compact">
-            <span className="section-kicker">Core capabilities</span>
-            <h2>AI fluency with operational discipline.</h2>
-          </div>
-        </Reveal>
-        <div className="capability-grid">
-          {capabilities.map((item, index) => {
-            const CapabilityIcon = capabilityIcons[index];
-            return (
-              <Reveal key={item.number}>
-                <article className="capability-card">
-                  <div className="capability-icon"><CapabilityIcon size={30} weight="duotone" aria-hidden="true" /></div>
-                  <span>{item.number}</span>
-                  <div className="capability-copy">
-                    <h3>{item.title}</h3>
-                    <p>{item.detail}</p>
-                  </div>
-                  <Arrow />
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
+      <section id="about" className="editorial-section shell about-editorial">
+        <div><span className="section-kicker">About</span><h2>Business context in. Reliable systems out.</h2></div>
+        <div><p className="lead">I work where business questions, data, and AI meet—translating unclear needs into requirements, workflows, controls, evaluations, and decision-ready products.</p><blockquote>“The work is finished when people can trust, test, and use the outcome.”</blockquote></div>
       </section>
 
-      <section id="experience" className="experience-section panel shell section-space">
-        <Reveal>
-          <div className="section-heading compact">
-            <span className="section-kicker">Experience</span>
-            <h2>Seven years across AI delivery, analytics, operations, and strategy.</h2>
-          </div>
-        </Reveal>
-        <div className="experience-list">
-          {experience.map(([role, company, dates]) => (
-            <Reveal key={`${company}-${role}`}>
-              <article className="experience-row"><h3>{role}</h3><p>{company}</p><time>{dates}</time><Arrow /></article>
-            </Reveal>
-          ))}
-        </div>
+      <section id="skills" className="editorial-section section-navy"><div className="shell">
+        <div className="section-intro inverse"><span className="section-kicker">Core capabilities</span><h2>AI fluency with operational discipline.</h2></div>
+        <div className="capability-ledger">{capabilities.map((item) => <article key={item.number}><span>{item.number}</span><h3>{item.title}</h3><p>{item.detail}</p></article>)}</div>
+      </div></section>
+
+      <section className="editorial-section shell evidence-strip"><span className="section-kicker">Additional evidence</span><div>{additionalEvidence.map(([value, label]) => <p key={label}><strong>{value}</strong><span>{label}</span></p>)}</div></section>
+
+      <section id="approach" className="editorial-section shell">
+        <div className="section-intro"><span className="section-kicker">How I work</span><h2>A disciplined path from ambiguity to adoption.</h2></div>
+        <div className="approach-ledger">{workSteps.map(([number, title, detail]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{detail}</p></article>)}</div>
       </section>
 
-      <section className="results-section shell section-space">
-        <Reveal>
-          <div className="section-heading compact results-heading">
-            <span className="section-kicker">Selected results</span>
-            <h2>Measured outcomes, not just activity.</h2>
-          </div>
-        </Reveal>
-        <div className="results-grid">
-          {results.map(([value, label, context]) => (
-            <Reveal key={label}>
-              <article className="result-signal">
-                <div className="result-icon"><ChartLineUp size={32} weight="duotone" aria-hidden="true" /></div>
-                <strong><AnimatedMetric value={value} /></strong>
-                <div className="result-copy"><h3>{label}</h3><p>{context}</p></div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+      <section className="editorial-section section-tinted">
+        <div className="shell split-heading"><div><span className="section-kicker">Project archive</span><h2>More products and experiments.</h2></div><p>Deployed prototypes, AI agents, repositories, and product work spanning finance, sales, food, healthcare, résumé tooling, and wellness.</p></div>
+        <div className="shell"><ProjectArchive /></div>
       </section>
-
-      <section id="approach" className="approach-section shell section-space">
-        <Reveal>
-          <div className="section-heading compact">
-            <span className="section-kicker">How I work</span>
-            <h2>A disciplined path from ambiguity to adoption.</h2>
-          </div>
-        </Reveal>
-        <div className="steps-list">
-          {workSteps.map(([number, title, detail]) => (
-            <Reveal key={number}>
-              <article className="step-row">
-                <span>{number}</span>
-                <div className="step-copy"><h3>{title}</h3><p>{detail}</p></div>
-                <Arrow />
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="archive-section panel shell section-space">
-        <Reveal>
-          <div className="section-heading archive-heading">
-            <div>
-              <span className="section-kicker">Project archive</span>
-              <h2>More products and experiments.</h2>
-            </div>
-            <p>Deployed prototypes, AI agents, repositories, and product work spanning finance, sales, food, healthcare, résumé tooling, and wellness.</p>
-          </div>
-        </Reveal>
-        <ProjectArchive />
-      </section>
-
       <SiteFooter />
     </main>
   );

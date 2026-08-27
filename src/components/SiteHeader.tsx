@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { List, X } from "@phosphor-icons/react";
+import { DownloadSimple, List, X } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 
 const links = [
   ["Work", "/#work"],
+  ["Experience", "/#experience"],
   ["About", "/#about"],
-  ["Skills", "/#skills"],
   ["Contact", "/#contact"],
 ];
 
@@ -76,6 +76,7 @@ export function SiteHeader() {
               {label}
             </Link>
           ))}
+          <Link className="nav-resume" href="/Dev_Neupane_Resume.pdf" onClick={() => setOpen(false)}>Résumé <DownloadSimple size={16} aria-hidden="true" /></Link>
         </nav>
       </div>
     </header>

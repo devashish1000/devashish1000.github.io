@@ -3,7 +3,7 @@ import { DownloadSimple, EnvelopeSimple, GithubLogo, LinkedinLogo } from "@phosp
 
 export function SiteFooter() {
   return (
-    <footer className="contact-section aurora-panel">
+    <footer className="contact-section">
       <span id="contact" className="anchor-target" aria-hidden="true" />
       <div className="shell contact-grid">
         <div>
