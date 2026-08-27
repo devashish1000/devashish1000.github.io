@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Arrow } from "@/components/Arrow";
+import { ProjectArchive } from "@/components/ProjectArchive";
 import { ProjectDiagram } from "@/components/ProjectDiagram";
 import { SiteFooter } from "@/components/SiteFooter";
-import { archiveProjects, projects } from "@/data/portfolio";
+import { projects } from "@/data/portfolio";
 
 export const metadata: Metadata = {
   title: "Selected Work",
@@ -33,17 +34,9 @@ export default function WorkPage() {
           </article>
         ))}
       </section>
-      <section className="archive-section shell section-space">
-        <span className="section-label">Project archive</span>
-        <div className="archive-list">
-          {archiveProjects.map((project) => project.href ? (
-            <a key={project.title} href={project.href} target="_blank" rel="noreferrer">
-              <h3>{project.title}</h3><p>{project.label}</p><Arrow />
-            </a>
-          ) : (
-            <div key={project.title}><h3>{project.title}</h3><p>{project.label}</p><span className="private-label">Private</span></div>
-          ))}
-        </div>
+      <section className="archive-section panel shell section-space">
+        <div className="section-heading compact"><span className="section-kicker">Project archive</span><h2>More products and experiments.</h2></div>
+        <ProjectArchive />
       </section>
       <SiteFooter />
     </main>
